@@ -15,7 +15,6 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Pproject">
         <activity android:name=".HomeActivity"/>
-        <activity android:name=".MapBuilderActivity"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".ParkingMapActivity" />
         <activity
