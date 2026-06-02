@@ -37,7 +37,7 @@ public class MapBuilderView extends View {
     private static final float MIN_SLOT_SIZE = 5f;
     private static final float MOVE_THRESHOLD = 2f;
 
-    private final Paint bitmapPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
+    private final Paint workspacePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint normalPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint disabledPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint selectedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -81,6 +81,9 @@ public class MapBuilderView extends View {
 
     private void init() {
         setBackgroundColor(Color.WHITE);
+
+        workspacePaint.setStyle(Paint.Style.FILL);
+        workspacePaint.setColor(Color.rgb(82, 82, 82));
 
         normalPaint.setStyle(Paint.Style.STROKE);
         normalPaint.setStrokeWidth(3f);
@@ -267,7 +270,7 @@ public class MapBuilderView extends View {
         }
 
         updateBitmapDest();
-        canvas.drawBitmap(mapBitmap, null, bitmapDest, bitmapPaint);
+        canvas.drawRect(bitmapDest, workspacePaint);
 
         List<ParkingSlot> slots = getCurrentSlots();
         for (int i = 0; i < slots.size(); i++) {
